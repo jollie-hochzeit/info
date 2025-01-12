@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Wedding</title>
+    <style>
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+        .header-image {
+            width: 100%;
+            height: 45vh;
+            background-image: url('wedding-header.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .content {
+            display: flex;
+            min-height: 45vh; /* Changed from fixed height: 75vh */
+        }
+        .navigation {
+            width: 30%;
+            padding: 40px;
+        }
+        .navigation ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .navigation li {
+            margin-bottom: 20px;
+        }
+        .navigation a {
+            text-decoration: none;
+            color: #333;
+            font-size: 24px;
+            transition: color 0.3s ease;
+        }
+        .navigation a:hover {
+            color: #8B4513;
+        }
+
+        .navigation {
+            width: 30%;
+            padding: 40px;
+        }
+
+        .main-content {
+            width: 70%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Add these media queries for mobile devices */
+        @media screen and (max-width: 768px) {
+            .header-image {
+                height: 30vh; /* Smaller header for mobile */
+            }
+
+            .content {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .navigation {
+                width: 100%;
+                padding: 20px;
+            }
+
+            .main-content {
+                width: 100%;
+                padding: 20px;
+            }
+
+            .navigation ul {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .navigation li {
+                margin: 0;
+            }
+
+            .navigation a {
+                font-size: 18px; /* Smaller font size for mobile */
+            }
+
+            h1 {
+                font-size: 24px; /* Adjust heading size for mobile */
+            }
+
+            .language-switcher {
+                /* Remove the fixed positioning */
+                text-align: right;  /* Align to the right side */
+                margin-bottom: 20px;  /* Add some space before the heading */
+            }
+
+            .lang-btn {
+                background: rgba(255, 255, 255, 0.8);
+                padding: 5px 10px;
+                margin-left: 5px;
+                text-decoration: none;
+                color: #333;
+                border-radius: 3px;
+                font-size: 14px;
+            }
+
+            .lang-btn:hover {
+                background: rgba(255, 255, 255, 1);
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            /* Even smaller devices */
+            .navigation a {
+                font-size: 16px;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="header-image"></div>
+    <div class="content">
+
+        <nav class="navigation">
+            <ul>
+                <li><a href="schedule.html" data-de="Ablauf" data-en="Schedule" data-ru="Расписание">Ablauf</a></li>
+                <li><a href="location.html" data-de="Veranstaltungsort " data-en="Location" data-ru="Место проведения">Location</a></li>
+                <li><a href="hotels.html" data-de="Hotels" data-en="Hotels" data-ru="Отели">Hotels</a></li>
+                <li><a href="rsvp.html" data-de="Teilnahme bestätigen" data-en="RSVP" data-ru="Подтвердить участие">RSVP</a></li>
+                <li><a href="gift_ideas.html" data-de="Geschenk Ideen" data-en="Gift Ideas" data-ru="Идеи подарков">Geschenk Ideen</a></li>
+            </ul>
+        </nav>
+
+        <div class="main-content">
+
+            <div class="language-switcher">
+                <a href="#" onclick="switchLanguage('de')" class="lang-btn">DE</a>
+                <a href="#" onclick="switchLanguage('en')" class="lang-btn">EN</a>
+                <a href="#" onclick="switchLanguage('ru')" class="lang-btn">RU</a>
+            </div>
+
+            <h1 data-de="Herzlich willkommen auf unserer Hochzeits-Website!" 
+            data-en="Welcome to our Wedding Website!"
+            data-ru="Добро пожаловать на сайт нашей свадьбы!">
+            Herzlich willkommen auf unserer Hochzeits-Website!
+        </h1>
+        <p data-de="Am 19. Juli 2025 geben wir uns auf der malerischen Insel Mainau das Ja-Wort."
+           data-en="On July 19, 2025, we will say 'I do' on the picturesque Mainau Island."
+           data-ru="19 июля 2025 года мы скажем «да» на живописном острове Майнау.">
+            Am 19. Juli 2025 geben wir uns auf der malerischen Insel Mainau das Ja-Wort.
+        </p>
+        <p data-de="Inmitten der blühenden Gärten und der atemberaubenden Kulisse des Bodensees möchten wir diesen besonderen Tag mit euch feiern."
+           data-en="We want to celebrate this special day with you amidst the blooming gardens and breathtaking scenery of Lake Constance."
+           data-ru="Мы хотим отпраздновать этот особенный день с вами среди цветущих садов и захватывающих видов на Боденское озеро.">
+            Inmitten der blühenden Gärten und der atemberaubenden Kulisse des Bodensees möchten wir diesen besonderen Tag mit euch feiern.
+        </p>
+        <p data-de="Wir freuen uns auf euch!"
+           data-en="We look forward to seeing you!"
+           data-ru="Ждём встречи с вами!">
+            Wir freuen uns auf euch!
+        </p>
+        </div>
+
+    </div>
+
+    <script>
+function switchLanguage(lang) {
+            const elements = document.querySelectorAll('[data-de][data-en][data-ru]');
+            elements.forEach(element => {
+                element.textContent = element.getAttribute(`data-${lang}`);
+            });
+            localStorage.setItem('preferredLanguage', lang);
+        }
+        
+        // Check for stored language preference on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const storedLang = localStorage.getItem('preferredLanguage');
+            if (storedLang) {
+                switchLanguage(storedLang);
+            }
+        });
+    </script>
+</body>
+</html>

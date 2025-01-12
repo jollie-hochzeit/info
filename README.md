@@ -1,2 +1,2 @@
-# info
-Website containing all the wedding related information.
+# jollie-hochzeit.github.io
+The wedding invitation website with all the information the guests will need.
