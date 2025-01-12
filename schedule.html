@@ -57,40 +57,70 @@
         .back-link a:hover {
             color: #5d2d0d;
         }
+
+        .language-switcher {
+                text-align: right;  /* Align to the right side */
+                margin-bottom: 20px;  /* Add some space before the heading */
+            }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="header-image"></div>
     <div class="content">
-        <h1>Wedding Schedule</h1>
+        <h1 data-en="Wedding Schedule" data-de="Hochzeitsablauf" data-ru="Расписание свадьбы">Wedding Schedule</h1>
+
+        <div class="language-switcher">
+            <a href="#" onclick="switchLanguage('de')" class="lang-btn">DE</a>
+            <a href="#" onclick="switchLanguage('en')" class="lang-btn">EN</a>
+            <a href="#" onclick="switchLanguage('ru')" class="lang-btn">RU</a>
+        </div>
+
         <div class="schedule-item">
-            <div class="time">2:00 PM</div>
-            <div class="event">Guest Arrival</div>
+            <div class="time">14:00</div>
+            <div class="event" data-en="Guest Arrival" data-de="Ankunft der Gäste" data-ru="Прибытие гостей">Guest Arrival</div>
         </div>
         <div class="schedule-item">
-            <div class="time">3:00 PM</div>
-            <div class="event">Wedding Ceremony</div>
+            <div class="time">15:00</div>
+            <div class="event" data-en="Wedding Ceremony" data-de="Trauungszeremonie" data-ru="Церемония бракосочетания">Wedding Ceremony</div>
         </div>
         <div class="schedule-item">
-            <div class="time">4:00 PM</div>
-            <div class="event">Cocktail Hour</div>
+            <div class="time">16:00</div>
+            <div class="event" data-en="Cocktail Hour" data-de="Sektempfang" data-ru="Коктейльный час">Cocktail Hour</div>
         </div>
         <div class="schedule-item">
-            <div class="time">5:30 PM</div>
-            <div class="event">Reception Dinner</div>
+            <div class="time">17:30</div>
+            <div class="event" data-en="Reception Dinner" data-de="Hochzeitsessen" data-ru="Свадебный ужин">Reception Dinner</div>
         </div>
         <div class="schedule-item">
-            <div class="time">7:00 PM</div>
-            <div class="event">First Dance</div>
+            <div class="time">19:00</div>
+            <div class="event" data-en="First Dance" data-de="Eröffnungstanz" data-ru="Первый танец">First Dance</div>
         </div>
         <div class="schedule-item">
-            <div class="time">7:30 PM - Late</div>
-            <div class="event">Dancing and Celebrations</div>
+            <div class="time">19:30</div>
+            <div class="event" data-en="Dancing and Celebrations" data-de="Tanz und Feier" data-ru="Танцы и празднование">Dancing and Celebrations</div>
         </div>
         <div class="back-link">
-            <a href="index.html">&larr; Back to Home</a>
+            <a href="index.html" data-en="← Back to Home" data-de="← Zurück zur Startseite" data-ru="← Вернуться на главную">← Back to Home</a>
         </div>
     </div>
+
+    <script>
+        function switchLanguage(lang) {
+                    const elements = document.querySelectorAll('[data-de][data-en][data-ru]');
+                    elements.forEach(element => {
+                        element.textContent = element.getAttribute(`data-${lang}`);
+                    });
+                    localStorage.setItem('preferredLanguage', lang);
+                }
+                
+                // Check for stored language preference on page load
+                document.addEventListener('DOMContentLoaded', () => {
+                    const storedLang = localStorage.getItem('preferredLanguage');
+                    if (storedLang) {
+                        switchLanguage(storedLang);
+                    }
+                });
+    </script>
 </body>
 </html>
