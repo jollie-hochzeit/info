@@ -75,6 +75,7 @@
         <h1 data-de="Unser Hochzeitsort" 
             data-en="Our Wedding Venue"
             data-ru="Место проведения свадьбы">Our Wedding Venue</h1>
+        
         <div class="language-switcher">
             <a href="#" onclick="switchLanguage('de')" class="lang-btn">DE</a>
             <a href="#" onclick="switchLanguage('en')" class="lang-btn">EN</a>
@@ -105,26 +106,31 @@
         </div>
         <div class="back-link">
             <a href="index.html" 
-               data-de="&larr; Zurück zur Startseite"
                data-en="&larr; Back to Home"
-               data-ru="&larr; Вернуться на главную">&larr; Back to Home</a>
+               data-de="&larr; Zurück zur Startseite"
+               data-ru="&larr; На главную">&larr; Back to Home</a>
         </div>
     </div>
 
     <script>
         function switchLanguage(lang) {
-            const elements = document.querySelectorAll('[data-de][data-en][data-ru]');
+            // Select ALL elements that have language data attributes
+            const elements = document.querySelectorAll('[data-' + lang + ']');
+            
             elements.forEach(element => {
-                if (element.tagName === 'TITLE') {
+                // Handle title element separately
+                if (element.tagName.toLowerCase() === 'title') {
                     document.title = element.getAttribute(`data-${lang}`);
-                } else {
+                }
+                // Handle elements with HTML content (like the back arrow)
+                else if (element.classList.contains('back-link')) {
+                    element.querySelector('a').innerHTML = element.querySelector('a').getAttribute(`data-${lang}`);
+                }
+                // Handle all other elements
+                else {
                     element.textContent = element.getAttribute(`data-${lang}`);
                 }
             });
-            
-            // Special handling for back link to preserve arrow
-            const backLink = document.querySelector('.back-link a');
-            backLink.innerHTML = backLink.getAttribute(`data-${lang}`);
             
             localStorage.setItem('preferredLanguage', lang);
         }
