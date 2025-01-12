@@ -135,13 +135,13 @@
             localStorage.setItem('preferredLanguage', lang);
         }
                 
-                // Check for stored language preference on page load
-                document.addEventListener('DOMContentLoaded', () => {
-                    const storedLang = localStorage.getItem('preferredLanguage');
-                    if (storedLang) {
-                        switchLanguage(storedLang);
-                    }
-                });
+        // Check for stored language preference on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const storedLang = localStorage.getItem('preferredLanguage');
+            if (storedLang) {
+                switchLanguage(storedLang);
+            }
+        });
     </script>
 </body>
 </html>
