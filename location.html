@@ -60,6 +60,10 @@
         .back-link a:hover {
             color: #5d2d0d;
         }
+        .language-switcher {
+                text-align: right;  /* Align to the right side */
+                margin-bottom: 20px;  /* Add some space before the heading */
+            }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
 </head>
@@ -67,14 +71,31 @@
     <div class="header-image"></div>
     <div class="content">
         <h1>Our Wedding Venue</h1>
+        <div class="language-switcher">
+            <a href="#" onclick="switchLanguage('de')" class="lang-btn">DE</a>
+            <a href="#" onclick="switchLanguage('en')" class="lang-btn">EN</a>
+            <a href="#" onclick="switchLanguage('ru')" class="lang-btn">RU</a>
+        </div>
         <div class="location-details">
-            <p>Wir feiern unsere Hochzeit auf der zauberhaften Insel Mainau, auch bekannt als die "Blumeninsel" im Bodensee. Diese einzigartige Insel ist ein wahres Naturparadies, das sich über 45 Hektar erstreckt und für ihre spektakulären Gartenanlagen berühmt ist.</p>
+            <p data-de="Wir feiern unsere Hochzeit auf der zauberhaften Insel Mainau, auch bekannt als die &quot;Blumeninsel&quot; im Bodensee. Diese einzigartige Insel ist ein wahres Naturparadies, das sich über 45 Hektar erstreckt und für ihre spektakulären Gartenanlagen berühmt ist."
+               data-en="We are celebrating our wedding on the enchanting Mainau Island, also known as the &quot;Flower Island&quot; in Lake Constance. This unique island is a true natural paradise spanning 45 hectares and is famous for its spectacular gardens."
+               data-ru="Мы празднуем нашу свадьбу на очаровательном острове Майнау, известном как &quot;Цветочный остров&quot; на Боденском озере. Этот уникальный остров - настоящий природный рай площадью 45 гектаров, известный своими впечатляющими садами.">
+            </p>
             
-            <p>Die Mainau verzaubert das ganze Jahr über mit ihrer botanischen Pracht: Im Frühling erwachen über eine Million Frühlingsblumen zum Leben, im Sommer erstrahlen etwa 30.000 Rosenstöcke in voller Blüte, und die mediterranen Pflanzen sowie das barocke Schloss verleihen der Insel einen südländischen Charme.</p>
+            <p data-de="Die Mainau verzaubert das ganze Jahr über mit ihrer botanischen Pracht: Im Frühling erwachen über eine Million Frühlingsblumen zum Leben, im Sommer erstrahlen etwa 30.000 Rosenstöcke in voller Blüte, und die mediterranen Pflanzen sowie das barocke Schloss verleihen der Insel einen südländischen Charme."
+               data-en="Mainau enchants visitors throughout the year with its botanical splendor: in spring, over a million spring flowers come to life, in summer about 30,000 rose bushes bloom in full glory, and the Mediterranean plants along with the baroque castle give the island a southern charm."
+               data-ru="Майнау очаровывает круглый год своим ботаническим великолепием: весной распускается более миллиона весенних цветов, летом около 30 000 розовых кустов цветут во всей красе, а средиземноморские растения и барочный замок придают острову южное очарование.">
+            </p>
 
-            <p>Besonders im Juli, wenn wir unsere Hochzeit feiern, präsentiert sich die Insel in ihrer sommerlichen Blütenpracht. Die historische Schlossanlage, die mediterranen Terrassengärten und der eindrucksvolle Rosengarten bieten eine traumhafte Kulisse für unsere Feier.</p>
+            <p data-de="Besonders im Juli, wenn wir unsere Hochzeit feiern, präsentiert sich die Insel in ihrer sommerlichen Blütenpracht. Die historische Schlossanlage, die mediterranen Terrassengärten und der eindrucksvolle Rosengarten bieten eine traumhafte Kulisse für unsere Feier."
+               data-en="Especially in July, when we celebrate our wedding, the island presents itself in its summer floral splendor. The historic castle complex, the Mediterranean terraced gardens, and the impressive rose garden provide a dreamlike backdrop for our celebration."
+               data-ru="Особенно в июле, когда мы празднуем нашу свадьбу, остров предстает во всем своем летнем цветочном великолепии. Исторический замковый комплекс, средиземноморские террасные сады и впечатляющий розарий создают сказочный фон для нашего торжества.">
+            </p>
 
-            <p>Adresse: Insel Mainau, 78465 Konstanz am Bodensee</p>
+            <p data-de="Adresse: Insel Mainau, 78465 Konstanz am Bodensee"
+               data-en="Address: Mainau Island, 78465 Constance on Lake Constance"
+               data-ru="Адрес: Остров Майнау, 78465 Констанц на Боденском озере">
+            </p>
             
             <img src="venue-details.jpg" alt="Insel Mainau" class="location-image">
         </div>
@@ -82,5 +103,23 @@
             <a href="index.html">&larr; Back to Home</a>
         </div>
     </div>
+
+    <script>
+        function switchLanguage(lang) {
+                    const elements = document.querySelectorAll('[data-de][data-en][data-ru]');
+                    elements.forEach(element => {
+                        element.textContent = element.getAttribute(`data-${lang}`);
+                    });
+                    localStorage.setItem('preferredLanguage', lang);
+                }
+                
+                // Check for stored language preference on page load
+                document.addEventListener('DOMContentLoaded', () => {
+                    const storedLang = localStorage.getItem('preferredLanguage');
+                    if (storedLang) {
+                        switchLanguage(storedLang);
+                    }
+                });
+    </script>
 </body>
 </html>
