@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wedding Location - Elvira and Johannes</title>
+    <title data-de="Hochzeitslocation - Elvira und Johannes" 
+           data-en="Wedding Location - Elvira and Johannes"
+           data-ru="Место свадьбы - Эльвира и Йоханнес">Wedding Location - Elvira and Johannes</title>
     <style>
         body {
             font-family: 'Cormorant Garamond', serif;
@@ -70,7 +72,9 @@
 <body>
     <div class="header-image"></div>
     <div class="content">
-        <h1>Our Wedding Venue</h1>
+        <h1 data-de="Unser Hochzeitsort" 
+            data-en="Our Wedding Venue"
+            data-ru="Место проведения свадьбы">Our Wedding Venue</h1>
         <div class="language-switcher">
             <a href="#" onclick="switchLanguage('de')" class="lang-btn">DE</a>
             <a href="#" onclick="switchLanguage('en')" class="lang-btn">EN</a>
@@ -100,7 +104,10 @@
             <img src="venue-details.jpg" alt="Insel Mainau" class="location-image">
         </div>
         <div class="back-link">
-            <a href="index.html">&larr; Back to Home</a>
+            <a href="index.html" 
+               data-de="&larr; Zurück zur Startseite"
+               data-en="&larr; Back to Home"
+               data-ru="&larr; Вернуться на главную">&larr; Back to Home</a>
         </div>
     </div>
 
@@ -111,6 +118,7 @@
                         element.textContent = element.getAttribute(`data-${lang}`);
                     });
                     localStorage.setItem('preferredLanguage', lang);
+                    document.title = document.querySelector('title').getAttribute(`data-${lang}`);
                 }
                 
                 // Check for stored language preference on page load
