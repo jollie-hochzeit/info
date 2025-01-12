@@ -57,112 +57,40 @@
         .back-link a:hover {
             color: #5d2d0d;
         }
-        .language-selector {
-            text-align: center;
-            margin: 20px 0;
-        }
-        .language-btn {
-            background: none;
-            border: 1px solid #8B4513;
-            color: #8B4513;
-            padding: 5px 15px;
-            margin: 0 5px;
-            cursor: pointer;
-            font-family: 'Cormorant Garamond', serif;
-            transition: all 0.3s ease;
-        }
-        .language-btn:hover {
-            background: #8B4513;
-            color: #fff;
-        }
-        .language-btn.active {
-            background: #8B4513;
-            color: #fff;
-        }
-        [lang]:not(.active) {
-            display: none;
-        }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="header-image"></div>
     <div class="content">
-        <div class="language-selector">
-            <button class="language-btn active" onclick="switchLanguage('en')">English</button>
-            <button class="language-btn" onclick="switchLanguage('de')">Deutsch</button>
-            <button class="language-btn" onclick="switchLanguage('sv')">Svenska</button>
-        </div>
-
-        <h1 class="active" lang="en">Wedding Schedule</h1>
-        <h1 lang="de">Hochzeitsablauf</h1>
-        <h1 lang="sv">Bröllopsschema</h1>
-
+        <h1>Wedding Schedule</h1>
         <div class="schedule-item">
-            <div class="time">14:00</div>
-            <div class="event active" lang="en">Guest Arrival</div>
-            <div class="event" lang="de">Ankunft der Gäste</div>
-            <div class="event" lang="sv">Gästerna anländer</div>
+            <div class="time">2:00 PM</div>
+            <div class="event">Guest Arrival</div>
         </div>
-
         <div class="schedule-item">
-            <div class="time">15:00</div>
-            <div class="event active" lang="en">Wedding Ceremony</div>
-            <div class="event" lang="de">Trauungszeremonie</div>
-            <div class="event" lang="sv">Vigselceremoni</div>
+            <div class="time">3:00 PM</div>
+            <div class="event">Wedding Ceremony</div>
         </div>
-
         <div class="schedule-item">
-            <div class="time">16:00</div>
-            <div class="event active" lang="en">Cocktail Hour</div>
-            <div class="event" lang="de">Koktelstunde</div>
-            <div class="event" lang="sv">Koktelkväll</div>
+            <div class="time">4:00 PM</div>
+            <div class="event">Cocktail Hour</div>
         </div>
-
         <div class="schedule-item">
-            <div class="time">17:30</div>
-            <div class="event active" lang="en">Reception Dinner</div>
-            <div class="event" lang="de">Empfangsessen</div>
-            <div class="event" lang="sv">Receptionsmiddag</div>
+            <div class="time">5:30 PM</div>
+            <div class="event">Reception Dinner</div>
         </div>
-
         <div class="schedule-item">
-            <div class="time">19:00</div>
-            <div class="event active" lang="en">First Dance</div>
-            <div class="event" lang="de">Erste Tanzpaar</div>
-            <div class="event" lang="sv">Första danspar</div>
+            <div class="time">7:00 PM</div>
+            <div class="event">First Dance</div>
         </div>
-
         <div class="schedule-item">
-            <div class="time">19:30 - Late</div>
-            <div class="event active" lang="en">Dancing and Celebrations</div>
-            <div class="event" lang="de">Tanzen und Feiern</div>
-            <div class="event" lang="sv">Dans och fest</div>
+            <div class="time">7:30 PM - Late</div>
+            <div class="event">Dancing and Celebrations</div>
         </div>
-
         <div class="back-link">
-            <a class="active" href="index.html" lang="en">&larr; Back to Home</a>
-            <a href="index.html" lang="de">&larr; Zurück zur Startseite</a>
-            <a href="index.html" lang="sv">&larr; Tillbaka till startsidan</a>
+            <a href="index.html">&larr; Back to Home</a>
         </div>
     </div>
-
-    <script>
-        function switchLanguage(lang) {
-            // Remove active class from all elements
-            document.querySelectorAll('.language-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            document.querySelectorAll('[lang]').forEach(elem => {
-                elem.classList.remove('active');
-            });
-
-            // Add active class to selected language elements
-            document.querySelector(`.language-btn[onclick*="${lang}"]`).classList.add('active');
-            document.querySelectorAll(`[lang="${lang}"]`).forEach(elem => {
-                elem.classList.add('active');
-            });
-        }
-    </script>
 </body>
 </html>
