@@ -1,1 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-de="Teilnahme bestätigen" 
+           data-en="RSVP"
+           data-ru="Подтвердить участие">Teilnahme bestätigen</title>
+    <style>
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f7f5;
+            color: #333;
+        }
+        .header-image {
+            width: 100%;
+            height: 30vh;
+            background-image: url('flowers-lake.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #8B4513;
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+        .location-details {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .location-details p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .location-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        .back-link {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .back-link a {
+            text-decoration: none;
+            color: #8B4513;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+        .back-link a:hover {
+            color: #5d2d0d;
+        }
+        .language-switcher {
+                text-align: right;  /* Align to the right side */
+                margin-bottom: 20px;  /* Add some space before the heading */
+            }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="header-image"></div>
+    <div class="content">
+        <h1 data-de="Teilnahme bestätigen" 
+            data-en="RSVP"
+            data-ru="Подтвердить участие">Teilnahme bestätigen</h1>
+        
+        <div class="language-switcher">
+            <a href="#" onclick="switchLanguage('de')" class="lang-btn">DE</a>
+            <a href="#" onclick="switchLanguage('en')" class="lang-btn">EN</a>
+            <a href="#" onclick="switchLanguage('ru')" class="lang-btn">RU</a>
+        </div>
+        <div class="location-details">
+            <p data-de="Bitte folgt folgendem Link um uns mitzuteilen, ob Ihr mit uns feiern könnt:"
+               data-en="Please follow this link to let us know if you can celebrate with us:"
+               data-ru="Пожалуйста, перейдите по этой ссылке, чтобы сообщить нам, сможете ли вы отпраздновать с нами:">
+            </p>
+                <p>
+                    <a href="https://example.com/rsvp">RSVP Here</a>
+                </p>
+            
+            <img src="venue-details.jpg" alt="Insel Mainau" class="location-image">
+        </div>
+        <div class="back-link">
+            <a href="index.html" 
+               data-en="&larr; Back to Home"
+               data-de="&larr; Zurück zur Startseite"
+               data-ru="&larr; На главную">&larr; Back to Home</a>
+        </div>
+    </div>
 
+    <script>
+        function switchLanguage(lang) {
+            // Select ALL elements that have language data attributes
+            const elements = document.querySelectorAll('[data-' + lang + ']');
+            
+            elements.forEach(element => {
+                // Handle title element separately
+                if (element.tagName.toLowerCase() === 'title') {
+                    document.title = element.getAttribute(`data-${lang}`);
+                }
+                // Handle elements with HTML content (like the back arrow)
+                else if (element.classList.contains('back-link')) {
+                    element.querySelector('a').innerHTML = element.querySelector('a').getAttribute(`data-${lang}`);
+                }
+                // Handle all other elements
+                else {
+                    element.textContent = element.getAttribute(`data-${lang}`);
+                }
+            });
+            
+            localStorage.setItem('preferredLanguage', lang);
+        }
+                
+        // Check for stored language preference on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const storedLang = localStorage.getItem('preferredLanguage');
+            if (storedLang) {
+                switchLanguage(storedLang);
+            }
+        });
+    </script>
+</body>
+</html>
