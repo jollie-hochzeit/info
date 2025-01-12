@@ -78,25 +78,60 @@
 <body>
     <div class="header-image"></div>
     <div class="content">
-        <h1>Hotel Options</h1>
+        <h1 data-de="Hoteloptionen" data-en="Hotel Options" data-ru="Варианты отелей">Hotel Options</h1>
+        
         <div class="hotel-option">
-            <h2>Elegant Suites</h2>
-            <p>Located just 5 minutes from the venue, Elegant Suites offers luxurious rooms with a special wedding discount. Enjoy their spa facilities and gourmet breakfast.</p>
-            <a href="#">Book Now</a>
+            <h2 data-de="Elegante Suiten" data-en="Elegant Suites" data-ru="Элегантные люксы">Elegant Suites</h2>
+            <p data-de="Nur 5 Minuten vom Veranstaltungsort entfernt bietet Elegant Suites luxuriöse Zimmer mit speziellem Hochzeitsrabatt. Genießen Sie die Spa-Einrichtungen und das Gourmet-Frühstück."
+               data-en="Located just 5 minutes from the venue, Elegant Suites offers luxurious rooms with a special wedding discount. Enjoy their spa facilities and gourmet breakfast."
+               data-ru="Расположенный всего в 5 минутах от места проведения, отель Elegant Suites предлагает роскошные номера со специальной свадебной скидкой. К вашим услугам спа-центр и гурме-завтрак.">
+                Located just 5 minutes from the venue, Elegant Suites offers luxurious rooms with a special wedding discount. Enjoy their spa facilities and gourmet breakfast.
+            </p>
+            <a href="#" data-de="Jetzt Buchen" data-en="Book Now" data-ru="Забронировать">Book Now</a>
         </div>
+
         <div class="hotel-option">
-            <h2>Cozy Inn</h2>
-            <p>A charming bed and breakfast 10 minutes away. Perfect for guests looking for a quaint, homely atmosphere. Complimentary shuttle service to the venue available.</p>
-            <a href="#">Book Now</a>
+            <h2 data-de="Gemütliches Gasthaus" data-en="Cozy Inn" data-ru="Уютный отель">Cozy Inn</h2>
+            <p data-de="Ein charmantes Bed & Breakfast, 10 Minuten entfernt. Perfekt für Gäste, die eine gemütliche, heimelige Atmosphäre suchen. Kostenloser Shuttle-Service zum Veranstaltungsort verfügbar."
+               data-en="A charming bed and breakfast 10 minutes away. Perfect for guests looking for a quaint, homely atmosphere. Complimentary shuttle service to the venue available."
+               data-ru="Очаровательный отель типа «постель и завтрак» в 10 минутах езды. Идеально подходит для гостей, ищущих уютную, домашнюю атмосферу. Предоставляется бесплатный трансфер к месту проведения.">
+                A charming bed and breakfast 10 minutes away. Perfect for guests looking for a quaint, homely atmosphere. Complimentary shuttle service to the venue available.
+            </p>
+            <a href="#" data-de="Jetzt Buchen" data-en="Book Now" data-ru="Забронировать">Book Now</a>
         </div>
+
         <div class="hotel-option">
-            <h2>City View Hotel</h2>
-            <p>For guests who prefer to stay in the heart of the city. Modern amenities and stunning views. 15 minutes drive to the venue, with easy access to public transport.</p>
-            <a href="#">Book Now</a>
+            <h2 data-de="Stadtblick Hotel" data-en="City View Hotel" data-ru="Отель с видом на город">City View Hotel</h2>
+            <p data-de="Für Gäste, die es vorziehen, im Herzen der Stadt zu übernachten. Moderne Annehmlichkeiten und atemberaubende Aussicht. 15 Minuten Fahrt zum Veranstaltungsort, mit guter Anbindung an öffentliche Verkehrsmittel."
+               data-en="For guests who prefer to stay in the heart of the city. Modern amenities and stunning views. 15 minutes drive to the venue, with easy access to public transport."
+               data-ru="Для гостей, предпочитающих остановиться в центре города. Современные удобства и потрясающие виды. 15 минут езды до места проведения, с удобным доступом к общественному транспорту.">
+                For guests who prefer to stay in the heart of the city. Modern amenities and stunning views. 15 minutes drive to the venue, with easy access to public transport.
+            </p>
+            <a href="#" data-de="Jetzt Buchen" data-en="Book Now" data-ru="Забронировать">Book Now</a>
         </div>
+
         <div class="back-link">
-            <a href="index.html">&larr; Back to Home</a>
+            <a href="index.html" data-de="&larr; Zurück zur Startseite" data-en="&larr; Back to Home" data-ru="&larr; Вернуться на главную">&larr; Back to Home</a>
         </div>
     </div>
+
+    <!-- Add the language switching script -->
+    <script>
+        function switchLanguage(lang) {
+            const elements = document.querySelectorAll('[data-de][data-en][data-ru]');
+            elements.forEach(element => {
+                element.textContent = element.getAttribute(`data-${lang}`);
+            });
+            localStorage.setItem('preferredLanguage', lang);
+        }
+        
+        // Check for stored language preference on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const storedLang = localStorage.getItem('preferredLanguage');
+            if (storedLang) {
+                switchLanguage(storedLang);
+            }
+        });
+    </script>
 </body>
 </html>
