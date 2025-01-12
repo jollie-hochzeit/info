@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gift Ideas - Elvira and Johannes' Wedding</title>
+    <title data-en="Gift Ideas - Elvira and Johannes' Wedding"
+           data-de="Geschenkideen - Hochzeit von Elvira und Johannes"
+           data-ru="Подарки - Свадьба Эльвиры и Йоханнеса">Gift Ideas - Elvira and Johannes' Wedding</title>
     <style>
         body {
             font-family: 'Cormorant Garamond', serif;
@@ -71,9 +73,13 @@
 <body>
     <div class="header-image"></div>
     <div class="content">
-        <h1>Gift Ideas</h1>
+        <h1 data-en="Gift Ideas"
+            data-de="Geschenkideen"
+            data-ru="Подарки">Gift Ideas</h1>
         <div class="gift-idea">
-            <h2>Wedding Wishes</h2>
+            <h2 data-en="Wedding Wishes"
+                data-de="Hochzeitswünsche"
+                data-ru="Свадебные пожелания">Wedding Wishes</h2>
             <div class="language-switcher">
                 <a href="#" onclick="switchLanguage('de')" class="lang-btn">DE</a>
                 <a href="#" onclick="switchLanguage('en')" class="lang-btn">EN</a>
@@ -85,18 +91,30 @@
         </div>
 
         <div class="back-link">
-            <a href="index.html">&larr; Back to Home</a>
+            <a href="index.html" 
+               data-en="&larr; Back to Home"
+               data-de="&larr; Zurück zur Startseite"
+               data-ru="&larr; На главную">&larr; Back to Home</a>
         </div>
     </div>
 
     <script>
         function switchLanguage(lang) {
-                    const elements = document.querySelectorAll('[data-de][data-en][data-ru]');
-                    elements.forEach(element => {
-                        element.textContent = element.getAttribute(`data-${lang}`);
-                    });
-                    localStorage.setItem('preferredLanguage', lang);
+            const elements = document.querySelectorAll('[data-de][data-en][data-ru]');
+            elements.forEach(element => {
+                if (element.tagName === 'TITLE') {
+                    document.title = element.getAttribute(`data-${lang}`);
+                } else {
+                    element.textContent = element.getAttribute(`data-${lang}`);
                 }
+            });
+            
+            // Special handling for back link to preserve arrow
+            const backLink = document.querySelector('.back-link a');
+            backLink.innerHTML = backLink.getAttribute(`data-${lang}`);
+            
+            localStorage.setItem('preferredLanguage', lang);
+        }
                 
                 // Check for stored language preference on page load
                 document.addEventListener('DOMContentLoaded', () => {
