@@ -113,13 +113,21 @@
 
     <script>
         function switchLanguage(lang) {
-                    const elements = document.querySelectorAll('[data-de][data-en][data-ru]');
-                    elements.forEach(element => {
-                        element.textContent = element.getAttribute(`data-${lang}`);
-                    });
-                    localStorage.setItem('preferredLanguage', lang);
-                    document.title = document.querySelector('title').getAttribute(`data-${lang}`);
+            const elements = document.querySelectorAll('[data-de][data-en][data-ru]');
+            elements.forEach(element => {
+                if (element.tagName === 'TITLE') {
+                    document.title = element.getAttribute(`data-${lang}`);
+                } else {
+                    element.textContent = element.getAttribute(`data-${lang}`);
                 }
+            });
+            
+            // Special handling for back link to preserve arrow
+            const backLink = document.querySelector('.back-link a');
+            backLink.innerHTML = backLink.getAttribute(`data-${lang}`);
+            
+            localStorage.setItem('preferredLanguage', lang);
+        }
                 
                 // Check for stored language preference on page load
                 document.addEventListener('DOMContentLoaded', () => {
