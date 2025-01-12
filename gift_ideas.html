@@ -60,6 +60,11 @@
         .back-link a:hover {
             color: #5d2d0d;
         }
+
+        .language-switcher {
+                text-align: right;  /* Align to the right side */
+                margin-bottom: 20px;  /* Add some space before the heading */
+            }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
 </head>
@@ -68,24 +73,39 @@
     <div class="content">
         <h1>Gift Ideas</h1>
         <div class="gift-idea">
-            <h2>Honeymoon Fund</h2>
-            <p>Help us create unforgettable memories on our honeymoon. Your contribution to our honeymoon fund would be greatly appreciated.</p>
+            <h2>Wedding Wishes</h2>
+            <div class="language-switcher">
+                <a href="#" onclick="switchLanguage('de')" class="lang-btn">DE</a>
+                <a href="#" onclick="switchLanguage('en')" class="lang-btn">EN</a>
+                <a href="#" onclick="switchLanguage('ru')" class="lang-btn">RU</a>
+            </div>
+            <p data-en="As we begin our new life together, we feel blessed to have you share in our special day. Your presence is our greatest gift. However, if you wish to honor us with a present, we would be truly grateful for a monetary contribution towards our future together. This would help us establish our new home and create lasting memories on our honeymoon journey."
+               data-de="Während wir unser gemeinsames Leben beginnen, fühlen wir uns gesegnet, dass Sie diesen besonderen Tag mit uns teilen. Ihre Anwesenheit ist unser größtes Geschenk. Falls Sie uns dennoch mit einem Präsent beehren möchten, würden wir uns über einen finanziellen Beitrag für unsere gemeinsame Zukunft sehr freuen. Dies würde uns helfen, unser neues Zuhause einzurichten und bleibende Erinnerungen auf unserer Hochzeitsreise zu schaffen."
+               data-ru="Начиная нашу совместную жизнь, мы счастливы разделить этот особенный день с вами. Ваше присутствие – наш самый большой подарок. Если же вы хотите порадовать нас подарком, мы были бы искренне благодарны за финансовый вклад в наше совместное будущее. Это поможет нам обустроить наш новый дом и создать незабываемые воспоминания во время свадебного путешествия."></p>
         </div>
-        <div class="gift-idea">
-            <h2>Charitable Donations</h2>
-            <p>In lieu of gifts, consider making a donation to one of our favorite charities. We'll provide a list of organizations close to our hearts.</p>
-        </div>
-        <div class="gift-idea">
-            <h2>Kitchen Essentials</h2>
-            <p>We're excited to start our new life together and would love some help stocking our kitchen with quality essentials.</p>
-        </div>
-        <div class="gift-idea">
-            <h2>Experience Gifts</h2>
-            <p>Gift us with experiences we can enjoy together, such as cooking classes, wine tastings, or adventure activities.</p>
-        </div>
+
         <div class="back-link">
             <a href="index.html">&larr; Back to Home</a>
         </div>
     </div>
+
+    <script>
+        function switchLanguage(lang) {
+                    const elements = document.querySelectorAll('[data-de][data-en][data-ru]');
+                    elements.forEach(element => {
+                        element.textContent = element.getAttribute(`data-${lang}`);
+                    });
+                    localStorage.setItem('preferredLanguage', lang);
+                }
+                
+                // Check for stored language preference on page load
+                document.addEventListener('DOMContentLoaded', () => {
+                    const storedLang = localStorage.getItem('preferredLanguage');
+                    if (storedLang) {
+                        switchLanguage(storedLang);
+                    }
+                });
+    </script>
+    
 </body>
 </html>
