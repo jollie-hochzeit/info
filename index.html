@@ -58,7 +58,7 @@
         /* Add these media queries for mobile devices */
         @media screen and (max-width: 896px) {
             .header-image {
-                height: 15vh; /* Smaller header for mobile */
+                height: 20vh; /* Smaller header for mobile */
                 background-size: cover; /* Ensure the image covers the header */
                 background-position: center; /* Center the image */
             }
@@ -67,16 +67,20 @@
                 flex-direction: column;
                 height: auto;
                 overflow-x: hidden; /* Prevent horizontal scrolling */
+                padding: 0 10px; /* Add padding to ensure content is not too close to the edges */
+                box-sizing: border-box; /* Include padding and border in the element's total width and height */
             }
 
             .navigation {
                 width: 100%;
                 padding: 20px;
+                box-sizing: border-box; /* Ensure padding is included in the width */
             }
 
             .main-content {
                 width: 100%;
                 padding: 20px;
+                box-sizing: border-box; /* Ensure padding is included in the width */
             }
 
             .navigation ul {
@@ -135,6 +139,8 @@
 
             .content {
                 overflow-x: hidden; /* Prevent horizontal scrolling */
+                padding: 0 10px; /* Add padding to ensure content is not too close to the edges */
+                box-sizing: border-box; /* Include padding and border in the element's total width and height */
             }
         }
     </style>
