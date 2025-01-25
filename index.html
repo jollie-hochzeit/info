@@ -59,11 +59,14 @@
         @media screen and (max-width: 896px) {
             .header-image {
                 height: 30vh; /* Smaller header for mobile */
+                background-size: cover; /* Ensure the image covers the header */
+                background-position: center; /* Center the image */
             }
 
             .content {
                 flex-direction: column;
                 height: auto;
+                overflow-x: hidden; /* Prevent horizontal scrolling */
             }
 
             .navigation {
@@ -128,6 +131,10 @@
 
             p {
                 font-size: 16px;
+            }
+
+            .content {
+                overflow-x: hidden; /* Prevent horizontal scrolling */
             }
         }
     </style>
