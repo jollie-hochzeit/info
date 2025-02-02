@@ -166,14 +166,17 @@
             
             localStorage.setItem('preferredLanguage', lang);
         }
-                
-                // Check for stored language preference on page load
-                document.addEventListener('DOMContentLoaded', () => {
-                    const storedLang = localStorage.getItem('preferredLanguage');
-                    if (storedLang) {
-                        switchLanguage(storedLang);
-                    }
-                });
+        
+        // Check for stored language preference on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const storedLang = localStorage.getItem('preferredLanguage');
+            if (storedLang) {
+                switchLanguage(storedLang);
+            }
+            
+            // Set the initial image for the carousel
+            document.getElementById('carousel-image').src = images[currentImageIndex];
+        });
 
         let currentImageIndex = 0;
         const images = ["IMG_7785.JPG", 'photo_2025-01-25_09-55-27 (2).jpg', 'photo_2025-01-25_09-55-27.jpg', 
